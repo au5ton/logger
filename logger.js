@@ -27,7 +27,7 @@ _.options = {
 
 //normal log message
 _.print = function(dat){
-    for(var i = 0; i < arguments.length; i++) {
+    for(let i = 0; i < arguments.length; i++) {
         if(typeof arguments[i] === 'function') {
             if(_.options.enabled_colors.indexOf('function') > -1) {
                 if(_.options.function_omission) {
@@ -107,7 +107,7 @@ _.warn = function() {
     if(_.options.emoji) {
         process.stdout.write('⚠️  ');
     }
-    for(var i = 0; i < arguments.length; i++) {
+    for(let i = 0; i < arguments.length; i++) {
         if(_.options.enabled_colors.indexOf('warn') > -1) {
             if(typeof arguments[i] === 'function') {
                 if(_.options.function_omission) {
@@ -163,7 +163,7 @@ _.error = function() {
     if(_.options.emoji) {
         process.stdout.write('🚫  ');
     }
-    for(var i = 0; i < arguments.length; i++) {
+    for(let i = 0; i < arguments.length; i++) {
         if(_.options.enabled_colors.indexOf('error') > -1) {
             if(typeof arguments[i] === 'function') {
                 if(_.options.function_omission) {
@@ -219,8 +219,7 @@ _.success = function() {
     if(_.options.emoji) {
         process.stdout.write('✅  ');
     }
-    for(var i = 0; i < arguments.length; i++) {
-
+    for(let i = 0; i < arguments.length; i++) {
         if(_.options.enabled_colors.indexOf('success') > -1) {
             if(typeof arguments[i] === 'function') {
                 if(_.options.function_omission) {
