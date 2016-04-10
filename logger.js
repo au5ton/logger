@@ -1,14 +1,12 @@
 /*
-** fwapi
+** logger.js
 **
-** https://github.com/au5ton/fwapi
+** https://github.com/au5ton/logger
 **
 */
 
 var process = require('process');
 var colors = require('colors');
-
-var SENTINEL = '|net.austinj.logger.type|5115198e783d35cd6cc74399ce372d12'
 
 var _ = {};
 _.options = {
