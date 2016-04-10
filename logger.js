@@ -4,6 +4,7 @@
 ** https://github.com/au5ton/logger
 **
 */
+'use strict';
 
 var process = require('process');
 var colors = require('colors');
