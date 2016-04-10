@@ -1,0 +1,19 @@
+{
+  "name": "au5ton-logger",
+  "version": "1.0.0",
+  "description": "console.log() is too boring for me",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/au5ton/logger.git"
+  },
+  "author": "Austin Jackson <austinjckson@gmail.com>",
+  "main": "./logger.js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/au5ton/logger/issues"
+  },
+  "homepage": "https://github.com/au5ton/logger#readme",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
