@@ -8,6 +8,7 @@
 
 var process = require('process');
 var colors = require('colors');
+var util = require('util');
 
 var _ = {};
 _.options = {
@@ -25,6 +26,33 @@ _.options = {
     function_omission: true,
     object_omission: false
 };
+
+_.default = {
+    emoji: true,
+    enabled_colors: [
+        'function',
+        'number',
+        'boolean',
+        'undefined',
+        'object',
+        'warn',
+        'error',
+        'success'
+    ],
+    function_omission: true,
+    object_omission: false
+};
+
+_.defaultColors = [
+    'function',
+    'number',
+    'boolean',
+    'undefined',
+    'object',
+    'warn',
+    'error',
+    'success'
+];
 
 //normal log message
 _.print = function(dat){
@@ -77,15 +105,15 @@ _.print = function(dat){
                     process.stdout.write(colors.blue(arguments[i].toString()));
                 }
                 else {
-                    process.stdout.write(colors.blue(JSON.stringify(arguments[i])));
+                    process.stdout.write(colors.blue(util.inspect(arguments[i])));
                 }
             }
             else {
-                if(_.options.function_omission) {
+                if(_.options.object_omission) {
                     process.stdout.write(arguments[i].toString());
                 }
                 else {
-                    process.stdout.write(JSON.stringify(arguments[i]));
+                    process.stdout.write(util.inspect(arguments[i]));
                 }
             }
         }
@@ -123,7 +151,7 @@ _.warn = function() {
                     process.stdout.write(colors.yellow(arguments[i].toString()));
                 }
                 else {
-                    process.stdout.write(colors.yellow(JSON.stringify(arguments[i])));
+                    process.stdout.write(colors.yellow(util.inspect(arguments[i])));
                 }
             }
             else {
@@ -144,7 +172,7 @@ _.warn = function() {
                     process.stdout.write(arguments[i].toString());
                 }
                 else {
-                    process.stdout.write(JSON.stringify(arguments[i]));
+                    process.stdout.write(util.inspect(arguments[i]));
                 }
             }
             else {
@@ -179,7 +207,7 @@ _.error = function() {
                     process.stdout.write(colors.red(arguments[i].toString()));
                 }
                 else {
-                    process.stdout.write(colors.red(JSON.stringify(arguments[i])));
+                    process.stdout.write(colors.red(util.inspect(arguments[i])));
                 }
             }
             else {
@@ -200,7 +228,7 @@ _.error = function() {
                     process.stdout.write(arguments[i].toString());
                 }
                 else {
-                    process.stdout.write(JSON.stringify(arguments[i]));
+                    process.stdout.write(util.inspect(arguments[i]));
                 }
             }
             else {
@@ -235,7 +263,7 @@ _.success = function() {
                     process.stdout.write(colors.green(arguments[i].toString()));
                 }
                 else {
-                    process.stdout.write(colors.green(JSON.stringify(arguments[i])));
+                    process.stdout.write(colors.green(util.inspect(arguments[i])));
                 }
             }
             else {
@@ -256,7 +284,7 @@ _.success = function() {
                     process.stdout.write(arguments[i].toString());
                 }
                 else {
-                    process.stdout.write(JSON.stringify(arguments[i]));
+                    process.stdout.write(util.inspect(arguments[i]));
                 }
             }
             else {
@@ -278,6 +306,30 @@ _.setOptions = function(opt) {
 
 _.setOption = function(key,val) {
     _.options[key] = val;
+}
+
+_.disableColor = function(color) {
+    if(color === '*') {
+        _.options.enabled_colors = [];
+    }
+    else {
+        //remove all instances, if there happens to be more than one
+        while(_.options.enabled_colors.indexOf(color) >= 0) {
+            _.options.enabled_colors.splice(_.options.enabled_colors.indexOf(color), 1);
+        }
+    }
+};
+
+_.enableColor = function(color) {
+    if(color === '*') {
+        _.options.enabled_colors = _.defaultColors;
+    }
+    else {
+        //prevent duplicates
+        if(_.options.enabled_colors.indexOf(color) === -1) {
+            _.options.enabled_colors.push(color);
+        }
+    }
 }
 
 module.exports = _;
