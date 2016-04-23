@@ -155,7 +155,7 @@ let options = {
 
 adds and removes `color` from `enabled_colors` where `color` is a valid string for `enabled_colors`. You can also specify `*` for either method to enable or disable all colors.
 
-valid example: `logger.disableColor('boolean)`
+valid example: `logger.disableColor('boolean')`
 
 valid example: `logger.disableColor('number')`
 
