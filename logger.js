@@ -132,6 +132,25 @@ _.log = function() {
     process.stdout.write('\n');
 }
 
+//Aliases
+_.println = function() {
+    _.log.apply(this, arguments);
+};
+
+//Ruby
+_.puts = function() {
+    _.log.apply(this, arguments);
+};
+
+//Golang
+_.Println = function() {
+    _.log.apply(this, arguments);
+};
+_.Print = function() {
+    _.print.apply(this, arguments);
+};
+
+
 _.warn = function() {
     if(_.options.emoji) {
         process.stdout.write('⚠️  ');

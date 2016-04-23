@@ -91,6 +91,14 @@ logger.error('Woah! Fix this!');
 logger.success('All is good, my friend.');
 ```
 
+### Used to another language?
+
+logger also aliases (or ["monkey patches"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply#Using_apply_in_monkey-patching)) itself with helpful methods for people who are more familiar with other languages instead of JavaScript, or just like different terms.
+
+- logger.println === logger.log
+- logger.puts === logger.log
+- logger.Println === logger.log
+- logger.Print === logger.print
 
 ## API
 
