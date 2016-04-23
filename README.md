@@ -2,17 +2,10 @@
 console.log() is too boring for me, so I wrote an npm module.
 
 #### Installation:
-1. Run: `npm install au5ton/logger --save`
+1. Run: `npm install au5ton-logger --save`
 2. Add the following code:
 ```javascript
 var client = require('au5ton-logger');
-```
-
-or manually add this to your dependencies in package.json:
-```json
-"dependencies": {
-  "au5ton-logger": "github:au5ton/logger"
-}
 ```
 
 ## Example code
