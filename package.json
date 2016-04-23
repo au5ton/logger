@@ -1,6 +1,6 @@
 {
   "name": "au5ton-logger",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "console.log() is too boring for me",
   "repository": {
     "type": "git",
