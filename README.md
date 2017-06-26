@@ -38,7 +38,6 @@ logger.success('All is good, my friend.');
 ## This is just another logger!
 
 Yes, this is a logger that fits *my* personal style. I think it's pretty. You don't have to use it, but I will.
-I also like to call logger `client` in the context of client code because the npm name of logger is 'au5ton-logger'.
 
 ## Features
 
@@ -148,7 +147,9 @@ let options = {
     //if true, print `[Function]` when attempting to print a function. if false, print the code inside the function.
     function_omission: true,
     //if true, call the .toString() when attempting to print an object. if false, print the JSON string of an object.
-    object_omission: false
+    object_omission: false,
+    //if true, timestamp each print in this prefix: [YYYY/MM/DD @ HH:MM:SS]
+    prefix_date: false
 };
 ```
 
