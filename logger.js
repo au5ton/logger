@@ -24,7 +24,8 @@ _.options = {
         'success'
     ],
     function_omission: true,
-    object_omission: false
+    object_omission: false,
+    prefix_date: false
 };
 
 _.default = {
@@ -40,7 +41,8 @@ _.default = {
         'success'
     ],
     function_omission: true,
-    object_omission: false
+    object_omission: false,
+    prefix_date: false
 };
 
 _.defaultColors = [
@@ -54,8 +56,21 @@ _.defaultColors = [
     'success'
 ];
 
+function generateDateString() {
+    let d = new Date();
+    return '['+d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()+' @ '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+']';
+}
+
 //normal log message
 _.print = function(dat){
+    if(_.options.prefix_date) {
+        if(_.options.enabled_colors.indexOf('date') > -1) {
+            process.stdout.write(colors.grey(generateDateString()+' '));
+        }
+        else {
+            process.stdout.write(generateDateString()+' ');
+        }
+    }
     for(let i = 0; i < arguments.length; i++) {
         if(typeof arguments[i] === 'function') {
             if(_.options.enabled_colors.indexOf('function') > -1) {
@@ -155,6 +170,14 @@ _.warn = function() {
     if(_.options.emoji) {
         process.stdout.write('⚠️  ');
     }
+    if(_.options.prefix_date) {
+        if(_.options.enabled_colors.indexOf('date') > -1) {
+            process.stdout.write(colors.grey(generateDateString()+' '));
+        }
+        else {
+            process.stdout.write(generateDateString()+' ');
+        }
+    }
     for(let i = 0; i < arguments.length; i++) {
         if(_.options.enabled_colors.indexOf('warn') > -1) {
             if(typeof arguments[i] === 'function') {
@@ -211,6 +234,14 @@ _.error = function() {
     if(_.options.emoji) {
         process.stdout.write('🚫  ');
     }
+    if(_.options.prefix_date) {
+        if(_.options.enabled_colors.indexOf('date') > -1) {
+            process.stdout.write(colors.grey(generateDateString()+' '));
+        }
+        else {
+            process.stdout.write(generateDateString()+' ');
+        }
+    }
     for(let i = 0; i < arguments.length; i++) {
         if(_.options.enabled_colors.indexOf('error') > -1) {
             if(typeof arguments[i] === 'function') {
@@ -266,6 +297,14 @@ _.error = function() {
 _.success = function() {
     if(_.options.emoji) {
         process.stdout.write('✅  ');
+    }
+    if(_.options.prefix_date) {
+        if(_.options.enabled_colors.indexOf('date') > -1) {
+            process.stdout.write(colors.grey(generateDateString()+' '));
+        }
+        else {
+            process.stdout.write(generateDateString()+' ');
+        }
     }
     for(let i = 0; i < arguments.length; i++) {
         if(_.options.enabled_colors.indexOf('success') > -1) {
