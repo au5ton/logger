@@ -393,6 +393,7 @@ _.enableColor = function(color) {
 }
 
 _.ind = (tabs) => {
+    if(tabs === undefined) tabs = 1;
     //print n tabs
     for(let n = 0; n < tabs; n++) {
         //print one tab
