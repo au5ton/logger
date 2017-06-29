@@ -30,6 +30,10 @@ logger.log('I\'m a normal logger.log');
 logger.warn('Uh, hey, you should look out for this!');
 logger.error('Woah! Fix this!');
 logger.success('All is good, my friend.');
+logger.log('-----------------------');
+logger.log('normal');
+logger.ind(1).log('indented once');
+logger.ind(2).log('indented twice');
 ```
 #### Result
 
@@ -149,7 +153,9 @@ let options = {
     //if true, call the .toString() when attempting to print an object. if false, print the JSON string of an object.
     object_omission: false,
     //if true, timestamp each print in this prefix: [YYYY/MM/DD @ HH:MM:SS]
-    prefix_date: false
+    prefix_date: false,
+    //the number of space characters (' ') to print out when calling logger.ind(1)
+    tab_size: 4
 };
 ```
 

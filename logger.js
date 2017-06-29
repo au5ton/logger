@@ -25,7 +25,8 @@ _.options = {
     ],
     function_omission: true,
     object_omission: false,
-    prefix_date: false
+    prefix_date: false,
+    tab_size: 4
 };
 
 _.default = {
@@ -42,7 +43,8 @@ _.default = {
     ],
     function_omission: true,
     object_omission: false,
-    prefix_date: false
+    prefix_date: false,
+    tab_size: 4
 };
 
 _.defaultColors = [
@@ -388,6 +390,17 @@ _.enableColor = function(color) {
             _.options.enabled_colors.push(color);
         }
     }
+}
+
+_.ind = (tabs) => {
+    //print n tabs
+    for(let n = 0; n < tabs; n++) {
+        //print one tab
+        for(let i = 0; i < _.options.tab_size; i++) {
+            process.stdout.write(' ');
+        }
+    }
+    return _;
 }
 
 module.exports = _;

@@ -18,3 +18,7 @@ logger.log('I\'m a normal logger.log');
 logger.warn('Uh, hey, you should look out for this!');
 logger.error('Woah! Fix this!');
 logger.success('All is good, my friend.');
+logger.log('-----------------------');
+logger.log('normal');
+logger.ind(1).log('indented once');
+logger.ind(2).log('indented twice');
