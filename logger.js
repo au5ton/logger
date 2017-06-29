@@ -404,4 +404,13 @@ _.ind = (tabs) => {
     return _;
 }
 
+_.nl = (newLines) => {
+    if(newLines === undefined) newLines = 1;
+    //print n '\n'
+    for(let n = 0; n < newLines; n++) {
+        process.stdout.write('\n');
+    }
+    return _;
+}
+
 module.exports = _;
