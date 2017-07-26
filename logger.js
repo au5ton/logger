@@ -17,7 +17,6 @@ _.options = {
         'function',
         'number',
         'boolean',
-        'undefined',
         'object',
         'warn',
         'error',
@@ -35,7 +34,6 @@ _.default = {
         'function',
         'number',
         'boolean',
-        'undefined',
         'object',
         'warn',
         'error',
@@ -51,7 +49,6 @@ _.defaultColors = [
     'function',
     'number',
     'boolean',
-    'undefined',
     'object',
     'warn',
     'error',
@@ -110,10 +107,10 @@ _.print = function(dat){
         }
         else if(typeof arguments[i] === 'undefined') {
             if(_.options.enabled_colors.indexOf('undefined') > -1) {
-                process.stdout.write(arguments[i]);
+                process.stdout.write(colors.grey('undefined'));
             }
             else {
-                process.stdout.write(arguments[i]);
+                process.stdout.write('undefined');
             }
         }
         else if(typeof arguments[i] === 'object') {
