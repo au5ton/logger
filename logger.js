@@ -110,7 +110,7 @@ _.print = function(dat){
         }
         else if(typeof arguments[i] === 'undefined') {
             if(_.options.enabled_colors.indexOf('undefined') > -1) {
-                process.stdout.write(colors.grey(arguments[i]));
+                process.stdout.write(arguments[i]);
             }
             else {
                 process.stdout.write(arguments[i]);
