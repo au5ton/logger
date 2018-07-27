@@ -2,9 +2,9 @@ var logger = require('./logger.js');
 
 logger.log('au5ton-logger can do some neat things.');
 logger.log('printing a function: ',function(){return 2+2;});
-logger.setOption('function_omission', false);
+//logger.setOption('function_omission', false);
 logger.log('another function: ',function(){return 4*8;});
-logger.setOptions(logger.default);
+//logger.setOptions(logger.default);
 logger.log('I am ', 17, ' years old.');
 logger.log('Houston is cold? ', false);
 var something;
