@@ -46,6 +46,7 @@ for(let i in methods) {
 ### Result
 
 ![example.png](img/example.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fau5ton%2Flogger.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fau5ton%2Flogger?ref=badge_shield)
 
 
 ## API
@@ -83,3 +84,6 @@ A [`chalk`](https://github.com/chalk/chalk) instance.
 Prints a shortcut to a chalk function. For example, `console.blue('hello')` equals `console.log(chalk.blue('hello'))`
 
 For valid methods, see [logger.js](https://github.com/au5ton/logger/blob/6bbae18430360801aaa3ba2af81f40a28a913139/logger.js#L122-L165)
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fau5ton%2Flogger.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fau5ton%2Flogger?ref=badge_large)
