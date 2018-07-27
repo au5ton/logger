@@ -18,7 +18,6 @@
   "homepage": "https://github.com/au5ton/logger#readme",
   "dependencies": {
     "ansi-styles": "^3.2.1",
-    "chalk": "^2.4.1",
-    "colors": "^1.3.1"
+    "chalk": "^2.4.1"
   }
 }
