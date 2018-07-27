@@ -1,95 +1,85 @@
 # logger
-console.log() is too boring for me, so I wrote an npm module.
+console.log() is too boring for me, so I wrote an npm module that hijacks it.
 
-#### Installation:
+## Installation:
 1. Run: `npm install au5ton-logger`
 2. Add the following code:
 ```javascript
-const logger = require('au5ton-logger');
+require('au5ton-logger')();
+
+// or with some options (only initialize it once)
+
+require('au5ton-logger')({
+    emoji: true, // uses emoji in print messages
+    prefix_date: false, // prefixes with [YYYY/MM/DD @ HH:MM:SS]
+    tab_size: 4, // amount of spaces to use when console.ind() is called
+});
 ```
 
 ## Example code
 
-#### Code
 ```javascript
+require('./logger')()
 
+// Different styles of prints
+console.log('A normal log function')
+console.info('I have some important information for you!')
+console.warn('This might be a problem later.')
+console.error('Houston, we have a problem.')
+console.success('Great job!')
+
+// Easy Identation
+console.log('normal');
+console.ind().log('indented once');
+console.ind(2).log('indented twice');
+
+// Chalk integration
+let chalk = console.chalk
+console.log(chalk.magenta('I am magenta!'))
+
+let methods=['bold','dim','italic','underline','inverse','strikethrough','black','red','green','yellow','blue','magenta','cyan','white','gray','redBright','greenBright','yellowBright','blueBright','magentaBright','cyanBright','whiteBright','bgBlack','bgRed','bgGreen','bgYellow','bgBlue','bgMagenta','bgCyan','bgWhite','bgBlackBright','bgRedBright','bgGreenBright','bgYellowBright','bgBlueBright','bgMagentaBright','bgCyanBright','bgWhiteBright'];
+for(let i in methods) {
+    // Calls every console.<modifier> function. Example: console.bold, console.cyan
+    console[methods[i]]('Styles!')
+}
 ```
-#### Result
+### Result
 
 ![example.png](img/example.png)
 
 
 ## API
 
-### logger.print(args)
+### `console.info(args)`
 
-prints arguments to screen (very fancy)
+same as built-in `console.info`, but all text is bold and the line starts with :grey_exclamation:
 
-valid example: `logger.print('emoji', 2, {hello: 'world'}, 'more strings')`
+### `console.warn(args)`
 
-### logger.log(args)
+same as built-in `console.warn`, but all text is yellow and the line starts with :warning:
 
-same as logger.print, but adds '\n'
+### `console.error(args)`
 
-### logger.warn(args)
+same as built-in `console.error`, but all text is red and the line starts with :no_entry_sign:
 
-same as logger.log, but all text is yellow and the line starts with :warning:
+### `console.success(args)`
 
-### logger.error(args)
+same as `console.log`, but all text is green and the line starts with :white_check_mark:
 
-same as logger.log, but all text is red and the line starts with :no_entry_sign:
+### `console.ind(n)`
 
-### logger.success(args)
+Prints ' ' `options.tab_size * n` times, returns `console` to allow chaining
 
-same as logger.log, but all text is green and the line starts with :white_check_mark:
+### `console.nl(n)`
 
-### logger.setOptions(options) & logger.setOption(key,val)
+Prints '\n' times, returns `console` to allow chaining
 
-logger has different features (other than coloring) that I like, which prompted me to make it.
+### `console.chalk`
 
-logger internally includes this `options` object with default option values. Some are self-explanatory, but I'll explain them all.
+A [`chalk`](https://github.com/chalk/chalk) instance.
 
-`logger.setOptions` replaces this object with what you provide. Make sure to specify everything, otherwise errors will occur! If you want to reset it to the default, use `logger.setOptions(logger.default)`
+### `console.<chalk_function>`
 
-`logger.setOption` (notice the plural vs singular) replaces only the option you specify in the `key` parameter. To edit the `enabled_colors`, use logger.enableColor(color) & logger.disableColor(color)
+Prints a shortcut to a chalk function. For example, `console.blue('hello')` equals `console.log(chalk.blue('hello'))`
 
-valid example: `logger.setOption('emoji', true)`
-
-```javascript
-let options = {
-    //enables or disables emoji before logger.warn,
-    //logger.error, and logger.success methods
-    emoji: true,
-    //different `typeof` javascript variables are colored differently when printed with logger, in addition to logger.warn, logger.error, and logger.success. The `typeof`s present in this array are colored differently from the default terminal color when printed with logger (see screenshot above). If it's not present, its color is unaffected.
-    enabled_colors: [
-        'function',
-        'number',
-        'boolean',
-        'undefined',
-        'object',
-        'warn',
-        'error',
-        'success'
-    ],
-    //if true, print `[Function]` when attempting to print a function. if false, print the code inside the function.
-    function_omission: true,
-    //if true, call the .toString() when attempting to print an object. if false, print the JSON string of an object.
-    object_omission: false,
-    //if true, timestamp each print in this prefix: [YYYY/MM/DD @ HH:MM:SS]
-    prefix_date: false,
-    //the number of space characters (' ') to print out when calling logger.ind(1)
-    tab_size: 4
-};
-```
-
-### logger.enableColor(color) & logger.disableColor(color)
-
-adds and removes `color` from `enabled_colors` where `color` is a valid string for `enabled_colors`. You can also specify `*` for either method to enable or disable all colors.
-
-valid example: `logger.disableColor('boolean')`
-
-valid example: `logger.disableColor('number')`
-
-valid example: `logger.enableColor('object')`
-
-valid example: `logger.enableColor('*')`
+For valid methods, see [logger.js](https://google.com)
