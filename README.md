@@ -68,6 +68,10 @@ same as built-in `console.error`, but all text is red and the line starts with :
 
 same as `console.log`, but all text is green and the line starts with :white_check_mark:
 
+### `console.flag(args)`
+
+prints the arguments and a stack trace in red
+
 ### `console.ind(n)`
 
 Prints ' ' `options.tab_size * n` times, returns `console` to allow chaining
