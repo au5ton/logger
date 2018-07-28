@@ -79,7 +79,7 @@ Prints ' ' `options.tab_size * n` times, returns `console` to allow chaining
 
 ### `console.nl(n)`
 
-Prints '\n' times, returns `console` to allow chaining
+Prints '\n' n times
 
 ### `console.chalk`
 

@@ -12,6 +12,9 @@ module.exports = (function(options){
     options.prefix_date = (options.prefix_date === undefined ? false : options.prefix_date)
     options.tab_size = (options.tab_size === undefined ? 4 : options.tab_size)
 
+    // default flag value
+    console._indflag = false
+
 
     // Preserve functions
     let rebinds = [
@@ -48,13 +51,14 @@ module.exports = (function(options){
 
     // "Override"s build-in functions
     console.log = function() {
-        if(options.prefix_date) {
+        if(options.prefix_date && !console._indflag) {
             process.stdout.write(generateDatePrefix()+' ');
         }
         console._log.apply(this, arguments);
+        console._indflag = false;
     }
     console.info = function() {
-        if(options.prefix_date) {
+        if(options.prefix_date && !console._indflag) {
             process.stdout.write(generateDatePrefix()+' ');
         }
         if(options.emoji) {
@@ -63,9 +67,10 @@ module.exports = (function(options){
         process.stdout.write(style.modifier.bold.open);
         console._info.apply(this, arguments);
         process.stdout.write(style.modifier.bold.close);
+        console._indflag = false;
     }
     console.warn = function() {
-        if(options.prefix_date) {
+        if(options.prefix_date && !console._indflag) {
             process.stdout.write(generateDatePrefix()+' ');
         }
         if(options.emoji) {
@@ -74,9 +79,10 @@ module.exports = (function(options){
         process.stdout.write(style.color.yellow.open);
         console._warn.apply(this, arguments);
         process.stdout.write(style.color.yellow.close);
+        console._indflag = false;
     }
     console.error = function() {
-        if(options.prefix_date) {
+        if(options.prefix_date && !console._indflag) {
             process.stdout.write(generateDatePrefix()+' ');
         }
         if(options.emoji) {
@@ -85,9 +91,10 @@ module.exports = (function(options){
         process.stdout.write(style.color.red.open);
         console._error.apply(this, arguments);
         process.stdout.write(style.color.red.close);
+        console._indflag = false;
     }
     console.success = function() {
-        if(options.prefix_date) {
+        if(options.prefix_date && !console._indflag) {
             process.stdout.write(generateDatePrefix()+' ');
         }
         if(options.emoji) {
@@ -96,10 +103,15 @@ module.exports = (function(options){
         process.stdout.write(style.color.green.open);
         console._log.apply(this, arguments);
         process.stdout.write(style.color.green.close);
+        console._indflag = false;
     }
 
     // new functions
     console.ind = (tabs) => {
+        console._indflag = true
+        if(options.prefix_date) {
+            process.stdout.write(generateDatePrefix()+' ');
+        }
         if(tabs === undefined) tabs = 1;
         //print n tabs
         for(let n = 0; n < tabs; n++) {
@@ -116,7 +128,6 @@ module.exports = (function(options){
         for(let n = 0; n < newLines; n++) {
             process.stdout.write('\n');
         }
-        return console;
     }
     console.flag = function() {
         process.stdout.write('🚩  ');
