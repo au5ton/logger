@@ -29,6 +29,7 @@ console.info('I have some important information for you!')
 console.warn('This might be a problem later.')
 console.error('Houston, we have a problem.')
 console.success('Great job!')
+console.flag('Lets diagnose what went wrong here')
 
 // Easy Identation
 console.log('normal');
