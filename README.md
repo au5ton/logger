@@ -1,6 +1,8 @@
 # logger
 console.log() is too boring for me, so I wrote an npm module that hijacks it.
 
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fau5ton%2Flogger.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fau5ton%2Flogger?ref=badge_shield)
+
 ## Installation:
 1. Run: `npm install au5ton-logger`
 2. Add the following code:
@@ -46,7 +48,6 @@ for(let i in methods) {
 ### Result
 
 ![example.png](img/example.png)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fau5ton%2Flogger.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fau5ton%2Flogger?ref=badge_shield)
 
 
 ## API
