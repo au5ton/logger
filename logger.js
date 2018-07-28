@@ -118,6 +118,18 @@ module.exports = (function(options){
         }
         return console;
     }
+    console.flag = function() {
+        process.stdout.write('🚩  ');
+        process.stdout.write(chalk.bold.red('Flag raised!\n'))
+        process.stdout.write(style.reset.open+''+style.reset.close)
+        console.ind()
+        for(let i in arguments) {
+            arguments[i] = chalk.red(arguments[i])
+        }
+        console._log.apply(this, arguments)
+        process.stdout.write(style.reset.open+''+style.reset.close)
+        console.trace()
+    }
 
     // chalk integration:
     // useful methods that chalk has, such as writing things in different colors
