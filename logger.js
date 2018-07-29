@@ -133,13 +133,8 @@ module.exports = (function(options){
         process.stdout.write('🚩  ');
         process.stdout.write(chalk.bold.red('Flag raised!\n'))
         process.stdout.write(style.reset.open+''+style.reset.close)
-        console.ind()
-        for(let i in arguments) {
-            arguments[i] = chalk.red(arguments[i])
-        }
-        console._log.apply(this, arguments)
-        process.stdout.write(style.reset.open+''+style.reset.close)
         console.trace()
+        console.error.apply(this, arguments)
     }
 
     // chalk integration:
