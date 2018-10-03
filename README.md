@@ -1,7 +1,7 @@
 # logger
 console.log() is too boring for me, so I wrote an npm module that hijacks it.
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fau5ton%2Flogger.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fau5ton%2Flogger?ref=badge_shield)
+[![CircleCI](https://circleci.com/gh/au5ton/logger.svg?style=svg)](https://circleci.com/gh/au5ton/logger) [![codebeat badge](https://codebeat.co/badges/8961568a-f38a-4e60-acc0-ff9af625ef51)](https://codebeat.co/projects/github-com-au5ton-logger-master) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fau5ton%2Flogger.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fau5ton%2Flogger?ref=badge_shield)
 
 ## Installation:
 1. Run: `npm install au5ton-logger`
